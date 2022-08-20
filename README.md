@@ -1,9 +1,12 @@
 # .dotfiles
 
-A quick note to self/anyone using my config: I will likely make this an install script in the future for ease of use, but given there are only a few manual steps, combined with not having the time to bother figuring out how to add an SSH key on GitHub from the command line, it's not practical for me now. In the future when I inevitably have too many RaspberryPi's or similar, I'll dedicate some time to it then rather than solving a problem I do not currently have.
+## Install:
+```sh
+git clone --bare https://github.com/leocrossman/dotfiles.git $HOME/dotfiles.git && git --git-dir=$HOME/dotfiles.git --work-tree=$HOME checkout -f HEAD && source $HOME/.zshrc
+```
 
-## Ordered Instructions
-### **Git**
+## Optional:
+### **Git via SSH**
 #### _Generating a new SSH Key_
 1. From the command line:
 ```sh
