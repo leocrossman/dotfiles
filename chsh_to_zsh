@@ -7,6 +7,7 @@ if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
 	 apt update
    echo Switching shell to ZSH.
 else
+  echo ZSH is not installed. Installing now...
   apt update && apt install -y zsh
 fi
 chsh -s $(which zsh)

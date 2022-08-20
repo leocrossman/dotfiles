@@ -1,6 +1,8 @@
 # .dotfiles
 
 ## Install:
+- For now, you must install and change shells to ZSH before running the following command.
+-
 ```sh
 git clone --bare https://github.com/leocrossman/dotfiles.git $HOME/dotfiles.git && git --git-dir=$HOME/dotfiles.git --work-tree=$HOME checkout -f HEAD && source $HOME/.zshrc
 ```
