@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+echo Current SHELL:
+echo $SHELL
+if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+   # assume Zsh
+	 apt update
+   echo Switching shell to ZSH.
+else
+  apt update && apt install -y zsh
+fi
+chsh -s $(which zsh)
+echo Shell is now $SHELL.
+
+# echo Creating \"$HOME/.zshrc\".
+# touch $HOME/.zshrc
+# echo "bash $HOME/dotfiles/setup_dotfiles" >> $HOME/.zshrc
+# echo SHELL: $SHELL
+# echo "bash $HOME/dotfiles/setup_dependencies" >> $HOME/.zshrc
+
+# echo Please terminate this shell, open a new one, and run \"bash install_brew\" from this directory.
+
