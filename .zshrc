@@ -358,7 +358,8 @@ alias open='"/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"'
 #sudo ln -s /mnt/c/Program\ Files\ (x86)/Microsoft/Edge/Application/msedge.exe /usr/bin/edge
 #mkdir -p /usr/bin/chrome && ln -sn "/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe" /usr/bin/chrome
 
-alias ls='pwd; ls --color' # Alias 'ls' to: pwd + ls + color.
+# alias ls='pwd; ls --color' # Alias 'ls' to: pwd + ls + color.
+alias ls='ls --color' # Alias 'ls' to: pwd + ls + color.
 
 #deno install
 export DENO_INSTALL="/home/leoadmin/.deno"
