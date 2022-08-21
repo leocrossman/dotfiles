@@ -6,6 +6,9 @@ dot="/usr/bin/git --git-dir=/home/${USER}/dotfiles.git --work-tree=/home/${USER}
 # Hides all the untracked files in the output
 $dot config --local status.showUntrackedFiles no
 
+###### only had to run this once, but it might as well go in nightly
+$dot prune
+
 ###### add all changes made to tracked files
 $dot add -u
 
