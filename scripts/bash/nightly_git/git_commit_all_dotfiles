@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# commit all files/changes nested in ~/.config as specified below:
+# commit all files/changes to dotfiles as specified below:
 
 dot="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 
@@ -7,7 +7,7 @@ dot="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 $dot config --local status.showUntrackedFiles no
 
 ###### only had to run this once, but it might as well go in nightly
-# $dot prune
+$dot prune
 
 ###### add all changes made to tracked files
 # stages modifications and deletions, WITHOUT NEW FILES
