@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# commit all files/changes nested in ~/.config as specified below:
+
+dot="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
+
+# Hides all the untracked files in the output
+$dot config --local status.showUntrackedFiles no
+
+###### only had to run this once, but it might as well go in nightly
+# $dot prune
+
+###### add all changes made to tracked files
+# stages modifications and deletions, WITHOUT NEW FILES
+$dot add -u
+
+###### $HOME/scripts
+$dot add $HOME/scripts
+
+###### nvim
+$dot add $HOME/.config/nvim
+# $dot commit -m "nightly nvim"
+# $dot push
+
+###### coc (nvim code completion)
+$dot add $HOME/.config/coc
+# $dot commit -m "nightly coc"
+# $dot push
+
+$dot commit -m "nightly"
+$dot push
