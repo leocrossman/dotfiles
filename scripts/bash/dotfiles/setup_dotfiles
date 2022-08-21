@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# setup_dotfiles - copies dotfiles into $HOME and sets up bare repo for future changes
+#
+# Copyright (C) - 2022 Leo Crossman
+#
+# setup_dotfiles
+
+echo Beginning setup...
+
+#echo Removing any existing bare dotfiles...
+#rm -fr $HOME/dotfiles.git
+
+#echo Creating bare repository...
+git clone --bare $HOME/dotfiles $HOME/dotfiles.git
+#echo Bare repository created successfully.
+
+#echo Removing .git/ ...
+#rm -fr .git
+
+echo Copying/overwriting files into root...
+# find . -type f -not -iname '**/copies' -exec cp '{}' 'copies/{}' ';' 2>/dev/null || :
+# find . -type f -not -iwholename '**/.git' -exec cp '{}' '$HOME' ';'
+rsync -av --exclude=".git" $HOME/dotfiles $HOME
+#cp -r .* $HOME
+echo Copying done.
+
+
+#echo Creating alias for maintaining bare `$HOME/dotfiles` repo.
+#echo "alias C='/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME'" >> $HOME/.zshrc
+#echo Alias created successfully.
+
+#echo TODO: track all changes and add changes to bare `~/dotfiles.git` repo
+
+echo Setup complete✅

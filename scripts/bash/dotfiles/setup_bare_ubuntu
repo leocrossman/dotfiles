@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+apt update && apt install -y sudo && apt install -y curl && apt install -y rsync

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# setup_dependencies - installs packages/services/CLIs/etc...
+#
+# Copyright (C) - 2022 Leo Crossman
+#
+# setup_dependencies
+
+# cowsay
+if ! command -v cowsay &> /dev/null
+then
+	brew install cowsay
+fi
+
+# zoxide
+if ! command -v zoxide &> /dev/null
+then
+	brew install zoxide
+fi
+
+# fzf
+# if ! command -v fzf &> /dev/null
+# then
+#   brew install fzf
+#   # To install useful key bindings and fuzzy completion:
+#   $(brew --prefix)/opt/fzf/install
+# fi

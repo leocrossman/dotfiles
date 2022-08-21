@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# ** NOT USED CURRENTLY
+
+
+# could run `delete_symlinks` first, but no point since we use the `-f` flag
+
+# ensure $PWD is in the same directory as this script
+# TODO: change this location once a script/install dir is added
+cd $HOME/dotfiles
+for file in .*; do
+    ln -sf dotfiles/"$file" ~/."$file"
+done
+echo Symlinked all dotfiles.
