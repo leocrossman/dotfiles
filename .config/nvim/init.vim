@@ -64,6 +64,7 @@ Plug 'honza/vim-snippets'
 
 " Rust
 Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
 
 
 Plug 'darrikonn/vim-gofmt'
@@ -417,6 +418,7 @@ source ~/.config/nvim/plugins/markdown-preview.vim
 source ~/.config/nvim/plugins/nerdcommenter.vim
 " source ~/.config/nvim/plugins/yats.vim
 "source ~/.config/nvim/plugins/rainbow.vim
+source ~/.config/nvim/plugins/rust-tools.vim
 
 
 " Lua stuff

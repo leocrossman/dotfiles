@@ -1,3 +1,8 @@
+au|au|snippets
+Plug|Plug|around
+println|println|snippets
+fn|fn|snippets
+git|git_commit_all_dotfiles|file
 |init.vim|file
 sh|shell|around
 cheat|cheat.sh-vim.vim|file
@@ -110,7 +115,6 @@ caf|caf|buffer
 int|interface|tsserver-typescript
 int|int|snippets
 caf|cancelAnimationFrame|tsserver-typescript
-au|au|snippets
 pro|priority|around
 af|aft|snippets
 aft|aft|snippets
