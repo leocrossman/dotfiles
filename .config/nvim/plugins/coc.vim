@@ -139,3 +139,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Install the missing extensions after coc.nvim service starts (keeps dotfiles happy)
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-prettier', 'coc-python', 'coc-rust-analyzer', 'coc-snippets', 'coc-tsserver', 'coc-vimlsp']
