@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "coc-git": ">=2.5.1",
+    "coc-json": ">=1.5.0",
+    "coc-prettier": ">=9.2.3",
+    "coc-python": ">=1.2.13",
+    "coc-rust-analyzer": ">=0.67.0",
+    "coc-snippets": ">=3.0.14",
+    "coc-tsserver": ">=1.11.1",
+    "coc-vimlsp": ">=0.12.5"
+  }
+}
