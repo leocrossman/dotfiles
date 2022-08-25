@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo rm -f /private/var/log/asl/*.asl
