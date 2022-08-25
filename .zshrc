@@ -260,7 +260,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # install homebrew
-bash $HOME/scripts/bash/dotfiles/install_brew
+if [[ $(command -v brew) == "" ]]; then
+    echo "Installing Hombrew"
+		bash $HOME/scripts/bash/dotfiles/install_brew
+fi
+
 
 # install additional dependencies
 bash $HOME/scripts/bash/dotfiles/setup_dependencies
@@ -372,9 +376,15 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 fpath+=~/.zfunc
 
+# old nvm slowing down new shells
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# new nvm optimized
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; nvm $@"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -383,21 +393,25 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(zoxide init zsh)"
 alias cd="z"
 
-# Configure ssh forwarding
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-# need `ps -ww` to get non-truncated command for matching
-# use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
-ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $?)
-if [[ $ALREADY_RUNNING != "0" ]]; then
-    if [[ -S $SSH_AUTH_SOCK ]]; then
-        # not expecting the socket to exist as the forwarding command isn't running (http://www.tldp.org/LDP/abs/html/fto.html)
-        echo "removing previous socket..."
-        rm $SSH_AUTH_SOCK
-    fi
-    echo "Starting SSH-Agent relay..."
-    # setsid to force new session to keep running
-    # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
-    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+# if on windows setup sshagent relay
+if [[ $(arch) != 'arm64' ]]
+then
+	# Configure ssh forwarding
+	export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+	# need `ps -ww` to get non-truncated command for matching
+	# use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
+	ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $?)
+	if [[ $ALREADY_RUNNING != "0" ]]; then
+			if [[ -S $SSH_AUTH_SOCK ]]; then
+					# not expecting the socket to exist as the forwarding command isn't running (http://www.tldp.org/LDP/abs/html/fto.html)
+					echo "removing previous socket..."
+					rm $SSH_AUTH_SOCK
+			fi
+			echo "Starting SSH-Agent relay..."
+			# setsid to force new session to keep running
+			# set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
+			(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
+	fi
 fi
 
 # bun completions
