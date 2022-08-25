@@ -258,7 +258,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+
+# install homebrew
+bash $HOME/scripts/bash/dotfiles/install_brew
+
+# install additional dependencies
+bash $HOME/scripts/bash/dotfiles/setup_dependencies
 
 # set default editor
 # export EDITOR="code -w" # vscode
