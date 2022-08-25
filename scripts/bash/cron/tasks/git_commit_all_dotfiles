@@ -18,13 +18,12 @@ $dot add $HOME/scripts
 
 ###### nvim
 $dot add $HOME/.config/nvim
-# $dot commit -m "nightly nvim"
-# $dot push
 
 ###### coc (nvim code completion)
 $dot add $HOME/.config/coc
-# $dot commit -m "nightly coc"
-# $dot push
+
+###### iterm2
+$dot add $HOME/.config/iterm2/palettes
 
 $dot commit -m "nightly"
 $dot push
