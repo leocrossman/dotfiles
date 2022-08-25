@@ -403,7 +403,7 @@ export BUN_INSTALL="/home/leoadmin/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Dotfiles
-alias dot="/usr/bin/git --git-dir=/home/leoadmin/dotfiles.git --work-tree=/home/leoadmin"
+alias dot="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 # Hides all the untracked files in the output
 dot config --local status.showUntrackedFiles no
 # only show hidden files
