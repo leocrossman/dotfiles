@@ -228,7 +228,8 @@ zstyle ':omz:update' frequency 13
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # Plugins first -> PATH to oh-my-zsh -> source oh-my-zsh.sh
-plugins=(git npm node 1password colored-man-pages colorize)
+# plugins=(git npm node 1password colored-man-pages colorize)
+plugins=(colored-man-pages)
 
 
 source $ZSH/oh-my-zsh.sh
@@ -269,10 +270,14 @@ fi
 # install additional dependencies
 bash $HOME/scripts/bash/dotfiles/setup_dependencies
 
+ln -sf $HOME/.config/nvim/init.vim $HOME
+
 # set default editor
 # export EDITOR="code -w" # vscode
 export EDITOR="vi" # vi
 alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 # fix_wsl2_interop() {
 #    for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
 #         if [[ -e "/run/WSL/${i}_interop" ]]; then
@@ -310,7 +315,6 @@ unsetopt LIST_BEEP
 alias myip="curl http://ipecho.net/plain; echo"
 # open file explorer gui
 alias e="explorer.exe ."
-alias vi="vim"
 
 # enter postgres user
 # sudo -u postgres -i

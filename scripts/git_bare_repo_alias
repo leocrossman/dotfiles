@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-echo "alias C='/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME'" >> $HOME/.zshrc

@@ -2,11 +2,10 @@
 
 # bash setup_bare_ubuntu
 # bash install_brew
-bash chsh_to_zsh
+# bash chsh_to_zsh
 # bash setup_dotfiles
 # bash install_brew
 
 # echo SHELL: $SHELL
 
 # bash setup_dependencies
-

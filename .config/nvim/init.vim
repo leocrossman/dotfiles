@@ -155,8 +155,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " If you
 Plug 'junegunn/limelight.vim' " focus text currently being written
 Plug 'junegunn/goyo.vim' " basically vs-code zen mode
 
-Plug 'HerringtonDarkholme/vim-worksheet'
-
+" Plug 'HerringtonDarkholme/vim-worksheet'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' " use . to get repeat behavior w/ plugins. requires remap
@@ -433,16 +432,15 @@ if has('gui_running')
   "set guifont=Roboto Mono Nerd Font
 endif
 
+set background=dark
+filetype on
+filetype plugin on
+syntax enable
 
 "colorscheme dracula
 colorscheme gruvbox-baby
 "colorscheme gruvbox
 "colorscheme colorful256
-
-set background=dark
-filetype on
-filetype plugin on
-syntax on
 
 " highlight pink in visual to match lightline
 highlight Visual guifg=#454545 guibg=#D4BFFF

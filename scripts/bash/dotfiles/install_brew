@@ -8,18 +8,18 @@ else
 	brew update
 fi
 
-if [[ $(arch) == 'arm64' ]]
-then
-	echo M1 Mac detected. Finishing install...
-	# Append to .zprofile + eval for current session
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-	echo Homebrew installed.
-else
-	# echo "~/.profile on Debian/Ubuntu or ~/.bash_profile on CentOS/Fedora/Red Hat."
-	# test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-	# test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-	# test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
-	# echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+# if [[ $(arch) == 'arm64' ]]
+# then
+# 	echo M1 Mac detected. Preparing install...
+# 	# Append to .zprofile + eval for current session
+# 	# echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+#   eval "$(/opt/homebrew/bin/brew shellenv)"
+# 	echo Homebrew installed.
+# else
+# 	# echo "~/.profile on Debian/Ubuntu or ~/.bash_profile on CentOS/Fedora/Red Hat."
+# 	# test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+# 	# test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# 	# test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.bash_profile
+# 	# echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >> ~/.profile
+# 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# fi

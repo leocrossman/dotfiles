@@ -1,6 +1,7 @@
 
 set noerrorbells visualbell t_vb=
 if has('autocmd')
+  autocmd!
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
@@ -15,6 +16,10 @@ set expandtab
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+if has("termguicolors")
+  set termguicolors
+endif
 
 set exrc " `vim .` -> sources any .vimrc in the dir -> custom executions for various projects. building/running linting/etc
 "set guicursor=
@@ -31,7 +36,6 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set termguicolors
 set scrolloff=8
 set noshowmode
 set completeopt=menuone,noinsert,noselect
