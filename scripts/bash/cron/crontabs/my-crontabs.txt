@@ -28,8 +28,5 @@
 # | ----------- Hour (0 - 23)
 # ------------- Minute (0 - 59)
 
-# Backup all user accounts at 5 a.m every week with:
-0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
-
 # commit dotfiles once a day at midnight
 0 0 * * * bash $HOME/scripts/bash/cron/git_commit_all_dotfiles
