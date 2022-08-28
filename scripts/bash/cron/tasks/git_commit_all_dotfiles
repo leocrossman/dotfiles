@@ -20,7 +20,7 @@ $dot add $HOME/scripts
 $dot add $HOME/.config/nvim
 
 ###### coc (nvim code completion)
-$dot add $HOME/.config/coc
+# $dot add $HOME/.config/coc
 
 ###### iterm2
 $dot add $HOME/.config/iterm2/palettes
