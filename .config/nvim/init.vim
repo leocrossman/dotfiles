@@ -53,13 +53,13 @@ Plug 'Pocco81/DAPInstall.nvim'
 Plug 'szw/vim-maximizer'
 
 " Snippets
-Plug 'L3MON4D3/LuaSnip'
-Plug 'rafamadriz/friendly-snippets'
+" Plug 'L3MON4D3/LuaSnip'
+" Plug 'rafamadriz/friendly-snippets'
 " Track the engine.
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 
 " Rust
@@ -240,8 +240,6 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " moving text
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-"inoremap <C-j> <esc> :m .+1<CR>== " old mapping pre coc-snippets
-"inoremap <C-k> <esc> :m .-2<CR>==
 inoremap <M-Down> <esc> :m .+1<CR>==
 inoremap <M-Up> <esc> :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
@@ -405,8 +403,6 @@ noremap <leader>gf :e <cfile><cr>
 
 " PLUGIN-CONFIGS
 source ~/.config/nvim/plugins/coc.vim
-"old snippet config below (switching to coc-snippets):
-"source ~/.config/nvim/plugins/snippets/vim-snippets.vim "UltiSnips
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/lightline.vim

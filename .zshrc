@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -229,9 +231,12 @@ zstyle ':omz:update' frequency 13
 # Add wisely, as too many plugins slow down shell startup.
 # Plugins first -> PATH to oh-my-zsh -> source oh-my-zsh.sh
 # plugins=(git npm node 1password colored-man-pages colorize)
-plugins=(colored-man-pages)
+# plugins=(colored-man-pages)
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+plugins=(zsh-nvm)
 
-
+# source after specifying plugins
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -378,12 +383,17 @@ alias ls='ls --color' # Alias 'ls' to: pwd + ls + color.
 export DENO_INSTALL="/home/leoadmin/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-fpath+=~/.zfunc
+# fpath+=~/.zfunc
+
+# add ~/.zfunc to fpath, and then lazy autoload
+# every file in there as a function
+fpath=(~/.zfunc $fpath);
+autoload -U $fpath[1]/*(.:t)
 
 # old nvm slowing down new shells
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # new nvm optimized
 # export NVM_DIR="$HOME/.nvm"
 # #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -432,3 +442,5 @@ dot config --local status.showUntrackedFiles no
 # only show hidden files
 alias l.="ls -A | egrep '^\.'"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

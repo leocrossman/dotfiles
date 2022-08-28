@@ -25,5 +25,8 @@ $dot add $HOME/.config/coc
 ###### iterm2
 $dot add $HOME/.config/iterm2/palettes
 
+###### zfunc
+$dot add $HOME/.zfunc
+
 $dot commit -m "nightly"
 $dot push

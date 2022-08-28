@@ -58,3 +58,30 @@ then
 	brew install tmux
 fi
 
+# install tpm (tmux plugin manager)
+if [ ! -d "$HOME/.tmux/plugins/tpm/" ]; then
+	echo Installing tpm...
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	echo tpm installed.
+fi
+
+if ! command -v htop &> /dev/null
+then
+	brew install htop
+fi
+
+if ! command -v rustup &> /dev/null
+then
+  curl https://sh.rustup.rs -sSf | sh
+fi
+
+if ! command -v fzf &> /dev/null
+then
+  brew install fzf
+  # To install useful key bindings and fuzzy completion:
+  $(brew --prefix)/opt/fzf/install
+fi
+
+if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-nvm" ]; then
+  git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+fi
