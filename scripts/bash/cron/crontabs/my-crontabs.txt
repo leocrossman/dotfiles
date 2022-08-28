@@ -7,14 +7,11 @@
 # | ----------- Hour (0 - 23)
 # ------------- Minute (0 - 59)
 
-# update all cronjobs (this file! meta...) hourly
+# update all cronjobs (this file! meta...) nightly
 0 0 * * * crontab $HOME/scripts/bash/cron/crontabs/my-crontabs.txt
 
 # commit dotfiles once a day at midnight
 0 0 * * * bash $HOME/scripts/bash/cron/tasks/git_commit_all_dotfiles
-
-# commit dotfiles hourly
-0 * * * * bash $HOME/scripts/bash/cron/tasks/git_commit_all_dotfiles
 
 # clear log files once a day at midnight
 0 0 * * * bash $HOME/scripts/bash/cron/tasks/clear_log_files
