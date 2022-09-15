@@ -1,5 +1,3 @@
-zmodload zsh/zprof
-
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -265,11 +263,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# install homebrew
-if [[ $(command -v brew) == "" ]]; then
-    echo "Installing Hombrew"
-		bash $HOME/scripts/bash/dotfiles/install_brew
-fi
 
 
 # install additional dependencies
@@ -444,3 +437,8 @@ alias l.="ls -A | egrep '^\.'"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+export PATH=/opt/homebrew/bin:$PATH
+
+alias uninstall_brew="NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)\""

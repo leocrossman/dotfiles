@@ -5,58 +5,43 @@
 #
 # setup_dependencies
 
+# install homebrew
+if [[ $(command -v brew) == "" ]]; then
+    echo "Installing Hombrew..."
+		bash $HOME/scripts/bash/dotfiles/install_brew
+fi
+
 # permanently turn off analytics tracking
 brew analytics off
 
-# cowsay
-if ! command -v cowsay &> /dev/null
-then
-	brew install cowsay
-fi
-
-# zoxide
-if ! command -v zoxide &> /dev/null
-then
-	brew install zoxide
-fi
-
-# neovim
-if ! command -v nvim &> /dev/null
-then
-	brew install neovim
-fi
-
-# check if `vim-plug` is installed
-# this could be maintained with dotfiles, but better to get a current `plug.vim` file
-if [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; then
-    echo "Installing vim-plug for Neovim..."
-		sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-		echo "vim-plug for Neovim installed."
-fi
-
-# install vim/neovim plugins
-if [ ! -d "$HOME/.vim/plugged" ]; then
-	echo Installing plugins...
-	nvim +'PlugInstall --sync' +qa
-	echo Plugins installed.
-fi
-
-# if ! command -v node &> /dev/null
+# # cowsay
+# if ! command -v cowsay &> /dev/null
 # then
-
+# 	brew install cowsay
 # fi
 
-if ! command -v python3 &> /dev/null
-then
-	brew install python
-	python3 -m pip install --user --upgrade pynvim
-fi
+# # zoxide
+# if ! command -v zoxide &> /dev/null
+# then
+# 	brew install zoxide
+# fi
 
-if ! command -v tmux &> /dev/null
-then
-	brew install tmux
-fi
+
+# # if ! command -v node &> /dev/null
+# # then
+
+# # fi
+
+# if ! command -v python3 &> /dev/null
+# then
+# 	brew install python
+# 	python3 -m pip install --user --upgrade pynvim
+# fi
+
+# if ! command -v tmux &> /dev/null
+# then
+# 	brew install tmux
+# fi
 
 # install tpm (tmux plugin manager)
 if [ ! -d "$HOME/.tmux/plugins/tpm/" ]; then
@@ -65,10 +50,10 @@ if [ ! -d "$HOME/.tmux/plugins/tpm/" ]; then
 	echo tpm installed.
 fi
 
-if ! command -v htop &> /dev/null
-then
-	brew install htop
-fi
+# if ! command -v htop &> /dev/null
+# then
+# 	brew install htop
+# fi
 
 if ! command -v rustup &> /dev/null
 then
@@ -84,4 +69,26 @@ fi
 
 if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-nvm" ]; then
   git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+fi
+
+# neovim
+# if ! command -v nvim &> /dev/null
+# then
+# 	brew install neovim
+# fi
+
+# check if `vim-plug` is installed
+# this could be maintained with dotfiles, but better to get a current `plug.vim` file
+if [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; then
+    echo "Installing vim-plug for Neovim..."
+		sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+		echo "vim-plug for Neovim installed."
+fi
+
+# install vim/neovim plugins
+if [ ! -d "$HOME/.vim/plugged" ]; then
+	echo Installing plugins...
+	nvim +'PlugInstall --sync' +qa
+	echo Plugins installed.
 fi

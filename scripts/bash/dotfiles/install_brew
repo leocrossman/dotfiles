@@ -1,8 +1,72 @@
 #!/usr/bin/env bash
 if ! command -v brew &> /dev/null
 then
-	echo Installing brew...
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  if [[ $(arch) == 'arm64' ]]
+  then
+		echo Installing Xcode Command Line Utilites...
+		xcode-select --install
+		echo Installing brew...
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+		brew update
+		brew upgrade
+
+		apps=(
+				ag
+				cmake
+				coreutils
+				dockutil
+				ffmpeg
+				fasd
+				gifsicle
+				git
+				gnu-sed
+				grep
+				hub
+				httpie
+				imagemagick
+				jq
+				mackup
+				peco
+				psgrep
+				python
+				shellcheck
+				ssh-copy-id
+				svn
+				tmux
+				tree
+				neovim
+				volta
+				wget
+        nvm
+        go
+				cowsay
+				zoxide
+				python
+				tmux
+				htop
+				fzf
+				neovim
+		)
+
+
+		brew install "${apps[@]}"
+
+		python3 -m pip install --user --upgrade pynvim
+
+	  # To install useful key bindings and fuzzy completion:
+  	$(brew --prefix)/opt/fzf/install
+
+		# Git comes with diff-highlight, but isn't in the PATH
+		ln -sf "$(brew --prefix)/share/git-core/contrib/diff-highlight/diff-highlight" /usr/local/bin/diff-highlight
+
+		echo Adding to zprofile...
+    grep -qxF 'eval "$(/opt/homebrew/bin/brew shellenv)" &> /dev/null' ~/.zprofile &> /dev/null || echo 'eval "$(/opt/homebrew/bin/brew shellenv)" &> /dev/null' >> ~/.zprofile
+		# echo "export PATH=/opt/homebrew/bin:$PATH" >> ~/.zshrc
+		eval "$(/opt/homebrew/bin/brew shellenv)"
+  # TODO: add logic for adding non-mac ~/.zprofile
+
+  fi
 else
 	echo Brew already installed. Updating...
 	brew update
