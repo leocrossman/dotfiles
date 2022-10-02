@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+# !/usr/bin/env bash
 # commit all files/changes to dotfiles as specified below:
 
 dot="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
@@ -26,7 +26,7 @@ $dot add $HOME/.config/nvim
 $dot add $HOME/.config/iterm2/palettes
 
 ###### zfunc
-$dot add $HOME/.zfunc
+$dot add $ZDOTDIR/.zfunc
 
-$dot commit -m "nightly"
-$dot push
+# $dot commit -m "nightly"
+# $dot push

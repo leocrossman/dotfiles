@@ -1,0 +1,5 @@
+nvim () {
+  unset -f nvim
+  _zsh_nvm_load
+  nvim "$@"
+}
