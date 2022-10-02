@@ -432,6 +432,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 alias dot="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
 # Hides all the untracked files in the output
 dot config --local status.showUntrackedFiles no
+alias dot_commit="bash ~/scripts/bash/cron/tasks/git_commit_all_dotfiles"
+
+
 # only show hidden files
 alias l.="ls -A | egrep '^\.'"
 
@@ -442,3 +445,4 @@ alias l.="ls -A | egrep '^\.'"
 export PATH=/opt/homebrew/bin:$PATH
 
 alias uninstall_brew="NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)\""
+

@@ -28,5 +28,5 @@ $dot add $HOME/.config/iterm2/palettes
 ###### zfunc
 $dot add $HOME/.zfunc
 
-$dot commit -m "nightly"
-$dot push
+# $dot commit -m "nightly"
+# $dot push
