@@ -448,7 +448,6 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
 
-
 " Load local config if exists
 if filereadable(expand("~/.nvim/config/local.vim"))
   source ~/.nvim/config/local.vim
