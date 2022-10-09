@@ -162,6 +162,8 @@ Plug 'tpope/vim-repeat' " use . to get repeat behavior w/ plugins. requires rema
 Plug 'tpope/vim-speeddating' " inc/dec dates with <C-a>/<C-x> respectively
 
 Plug 'ryanoasis/vim-devicons'
+
+
 call plug#end()
 
 set encoding=UTF-8
