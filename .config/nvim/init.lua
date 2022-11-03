@@ -100,7 +100,7 @@ vim.cmd([[
 	Plug 'elzr/vim-json'
 	Plug 'prettier/vim-prettier', {
 	      \ 'do': 'yarn install --frozen-lockfile --production',
-	      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+	      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'vue', 'svelte', 'yaml', 'html'] }
 
 	" prettier
 	Plug 'sbdchd/neoformat'
