@@ -315,14 +315,6 @@ if has ('autocmd')
     autocmd SwapExists * echo 'Duplicate edit session (readonly)'
     autocmd SwapExists * echohl None
   augroup END
-
-  augroup TmuxlineGroup
-    autocmd!
-    " currently only works for normal/insert mode since I don't want to set up custom VisualEnter/Leave now
-    autocmd InsertEnter * Tmuxline lightline_insert
-    autocmd InsertLeave * Tmuxline lightline
-  augroup END
-
 endif
 
 set autochdir
