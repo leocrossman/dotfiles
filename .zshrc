@@ -360,15 +360,6 @@ alias ec2-Mmreal-env="ssh -i ~/.ssh/mm-ec2-key.pem ec2-user@ec2-44-200-245-30.co
 
 #ZSH_COLORIZE_STYLE="colorful"
 
-
-#open anything in WSL
-alias eye="xdg-open"
-# open chrome from wsl terminal
-alias open='"/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"'
-# symlink chrome into wsl from windows drive
-#sudo ln -s /mnt/c/Program\ Files\ (x86)/Microsoft/Edge/Application/msedge.exe /usr/bin/edge
-#mkdir -p /usr/bin/chrome && ln -sn "/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe" /usr/bin/chrome
-
 # alias ls='pwd; ls --color' # Alias 'ls' to: pwd + ls + color.
 alias ls='ls --color' # Alias 'ls' to: pwd + ls + color.
 
@@ -446,3 +437,5 @@ export PATH=/opt/homebrew/bin:$PATH
 
 alias uninstall_brew="NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)\""
 
+# export PATH=~/legendary:$PATH
+fpath+=${ZDOTDIR:-~}/.zfunc

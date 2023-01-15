@@ -3,6 +3,7 @@
 " Tmuxline vim_statusline_3
 "let g:tmuxline_preset='lightline'
 
+" COMMENT BELOW FOR TMUXLINE SYNCED WITH VIM-LIGHTLINE BUT BAD VISUAL MODE...
 augroup TmuxlineGroup
   autocmd!
   autocmd InsertEnter * Tmuxline lightline_insert

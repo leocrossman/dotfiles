@@ -398,7 +398,7 @@ source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/telescope.vim
 source ~/.config/nvim/plugins/airline.vim
 source ~/.config/nvim/plugins/lightline.vim
-source ~/.config/nvim/plugins/tmuxline.vim
+" source ~/.config/nvim/plugins/tmuxline.vim
 source ~/.config/nvim/plugins/neoformat/neoformat.vim
 source ~/.config/nvim/plugins/markdown.vim
 source ~/.config/nvim/plugins/markdown-preview.vim
