@@ -265,10 +265,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 
-# install additional dependencies
-bash $HOME/scripts/bash/dotfiles/setup_dependencies
-
-ln -sf $HOME/.config/nvim/init.vim $HOME
+# ln -sf $HOME/.config/nvim/init.vim $HOME
 
 # set default editor
 # export EDITOR="code -w" # vscode
