@@ -308,8 +308,6 @@ unsetopt LIST_BEEP
 
 # get ip
 alias myip="curl http://ipecho.net/plain; echo"
-# open file explorer gui
-alias e="explorer.exe ."
 
 # enter postgres user
 # sudo -u postgres -i
@@ -329,14 +327,9 @@ alias mstop="sudo service mongod stop"
 
 alias c="clear"
 alias n="nvim"
-alias so="source ~/.zshrc"
+alias so="source $ZDOTDIR/.zshrc"
 
 alias clean_nm="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
-
-# color stuff
-# alias show_colors="zsh ~/.dotfiles/ubuntu/scripts/zsh/display_terminal_colors.zsh"
-d=.dircolors
-test -r $d && eval "$(dircolors $d)"
 
 # typingtest config
 #bash ./tt_config.sh
@@ -347,13 +340,9 @@ alias ttq="curl http://api.quotable.io/random|jq '[.text=.content|.attribution=.
 # Creates an alias called ttd which keeps a log of progress in your home directory`.
 alias ttd="tt -n 40 -csv >> ~/wpm.csv"
 
-# Generate Password
-alias gen_pass="tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo ''"
 
-alias draft_dir="mkdir drafts && echo '*' > ./drafts/.gitignore"
+alias draft="mkdir drafts && echo '*' > ./drafts/.gitignore"
 
-# EC2 shortcut
-alias ec2-Mmreal-env="ssh -i ~/.ssh/mm-ec2-key.pem ec2-user@ec2-44-200-245-30.compute-1.amazonaws.com"
 
 #ZSH_COLORIZE_STYLE="colorful"
 
@@ -368,7 +357,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 # add ~/.zfunc to fpath, and then lazy autoload
 # every file in there as a function
-fpath=(~/.zfunc $fpath);
+fpath=($ZDOTDIR/.zfunc $fpath);
 autoload -U $fpath[1]/*(.:t)
 
 # old nvm slowing down new shells
@@ -386,28 +375,7 @@ autoload -U $fpath[1]/*(.:t)
 
 # zoxide -> Better version of `z`
 eval "$(zoxide init zsh)"
-alias cd="z"
 
-# if on windows setup sshagent relay
-if [[ $(arch) != 'arm64' ]]
-then
-	# Configure ssh forwarding
-	export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-	# need `ps -ww` to get non-truncated command for matching
-	# use square brackets to generate a regex match for the process we want but that doesn't match the grep command running it!
-	ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $?)
-	if [[ $ALREADY_RUNNING != "0" ]]; then
-			if [[ -S $SSH_AUTH_SOCK ]]; then
-					# not expecting the socket to exist as the forwarding command isn't running (http://www.tldp.org/LDP/abs/html/fto.html)
-					echo "removing previous socket..."
-					rm $SSH_AUTH_SOCK
-			fi
-			echo "Starting SSH-Agent relay..."
-			# setsid to force new session to keep running
-			# set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay which then forwards to openssh-ssh-agent on windows
-			(setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
-	fi
-fi
 
 # bun completions
 [ -s "/home/leoadmin/.bun/_bun" ] && source "/home/leoadmin/.bun/_bun"
