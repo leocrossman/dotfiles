@@ -237,6 +237,7 @@ zstyle ':omz:update' frequency 13
 # plugins=(colored-man-pages)
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('nvim')
 plugins=(zsh-nvm)
 
 # source after specifying plugins
