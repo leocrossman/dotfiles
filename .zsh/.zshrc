@@ -21,6 +21,11 @@ setopt HIST_IGNORE_ALL_DUPS
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -e
 
+# add ~/.zfunc to fpath, and then lazy autoload each file in it file as a function
+fpath=($ZDOTDIR/.zfunc $fpath)
+autoload -Uz $fpath[1]/*(.:t) # disable alias expansion+force zsh-style autoload
+# more info: https://unix.stackexchange.com/a/33898
+
 # Prompt for spelling correction of commands.
 #setopt CORRECT
 
@@ -69,7 +74,7 @@ WORDCHARS=${WORDCHARS//[\/]}
 #
 
 # Disable automatic widget re-binding on each precmd. This can be set when
-# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+# zsh-users/zsh-autosuggestions is the last module in your $ZDOTDIR/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 # Customize the style that the suggestions are shown with.
@@ -93,7 +98,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # Initialize modules
 # ------------------
 
-ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   if (( ${+commands[curl]} )); then
@@ -145,7 +150,7 @@ fi
 # Changes permissions to be executable
 #chmod +x ~/.dotfiles/scripts/ubuntu/bash/install_fortune.sh
 
-
+  
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -244,51 +249,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-
 # ln -sf $HOME/.config/nvim/init.vim $HOME
 
 # set default editor
 # export EDITOR="code -w" # vscode
-export EDITOR="vi" # vi
+export EDITOR="nvim"
 alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
-# fix_wsl2_interop() {
-#    for i in $(pstree -np -s $$ | grep -o -E '[0-9]+'); do
-#         if [[ -e "/run/WSL/${i}_interop" ]]; then
-#             export WSL_INTEROP=/run/WSL/${i}_interop
-#         fi
-#     done
-# }
-
-# fix_wsl2_interop
-
-# make command_not_found active in zsh since it is not by default
-# [[ -a "/etc/zsh_command_not_found" ]] && . /etc/zsh_command_not_found
-
-# ------------ run these on startup ------------
-# echo $ZSH_THEME
-# alias say="fortune | cowsay  -f \"$(ls /usr/share/cowsay/cows | sort -R | head -1)\" | lolcat"
 
 unsetopt BEEP
 # Turn off autocomplete beeps
@@ -297,36 +263,9 @@ unsetopt LIST_BEEP
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# launch tmux on startup
-# if which tmux 2>&1 >/dev/null; then
-#   if [ $TERM != "screen-256color" ] && [ $TERM != "screen" ]; then
-#     tmux new-session -A -s main;
-#   fi
-# fi
-
-# aliases
-
 # get ip
 alias myip="curl http://ipecho.net/plain; echo"
 
-# enter postgres user
-# sudo -u postgres -i
-# enter psql cli
-alias pg="sudo -u postgres psql"
-# /statusstart/stop psql server
-alias pstatus="sudo service postgresql status"
-alias pstart="sudo service postgresql start"
-alias pstop="sudo service postgresql stop"
-
-
-
-alias mg="mongosh"
-alias mstatus="sudo service mongod status"
-alias mstart="sudo service mongod start"
-alias mstop="sudo service mongod stop"
-
-alias c="clear"
-alias n="nvim"
 alias so="source $ZDOTDIR/.zshrc"
 
 alias clean_nm="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
@@ -340,35 +279,13 @@ alias ttq="curl http://api.quotable.io/random|jq '[.text=.content|.attribution=.
 # Creates an alias called ttd which keeps a log of progress in your home directory`.
 alias ttd="tt -n 40 -csv >> ~/wpm.csv"
 
-
 alias draft="mkdir drafts && echo '*' > ./drafts/.gitignore"
 
-
-#ZSH_COLORIZE_STYLE="colorful"
-
-# alias ls='pwd; ls --color' # Alias 'ls' to: pwd + ls + color.
 alias ls='ls --color' # Alias 'ls' to: pwd + ls + color.
 
-#deno install
 export DENO_INSTALL="/home/leoadmin/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-# fpath+=~/.zfunc
-
-# add ~/.zfunc to fpath, and then lazy autoload
-# every file in there as a function
-fpath=($ZDOTDIR/.zfunc $fpath);
-autoload -U $fpath[1]/*(.:t)
-
-# old nvm slowing down new shells
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# new nvm optimized
-# export NVM_DIR="$HOME/.nvm"
-# #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# alias nvm="unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"; nvm $@"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -377,19 +294,15 @@ autoload -U $fpath[1]/*(.:t)
 eval "$(zoxide init zsh)"
 
 
-# bun completions
-[ -s "/home/leoadmin/.bun/_bun" ] && source "/home/leoadmin/.bun/_bun"
-
 # Bun
 export BUN_INSTALL="/home/leoadmin/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+# bun completions
+# [ -s "/home/leoadmin/.bun/_bun" ] && source "/home/leoadmin/.bun/_bun"
 
 # Dotfiles
 alias dot="/usr/bin/git --git-dir=$HOME/dotfiles.git --work-tree=$HOME"
-# Hides all the untracked files in the output
 dot config --local status.showUntrackedFiles no
-alias dot_commit="bash ~/scripts/bash/cron/tasks/git_commit_all_dotfiles"
-
 
 # only show hidden files
 alias l.="ls -A | egrep '^\.'"
@@ -400,10 +313,7 @@ alias l.="ls -A | egrep '^\.'"
 
 export PATH=/opt/homebrew/bin:$PATH
 
-alias uninstall_brew="NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)\""
-
-# export PATH=~/legendary:$PATH
-fpath+=${ZDOTDIR:-~}/.zfunc
-
 export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
+
+alias tree="tree --gitignore"
