@@ -203,13 +203,13 @@ schemes:
       dim_background:    '#242424'
     normal:
       black:      '#262626'
-      red:        '#e85841' # '#fb4934'
-      green:      '#689d6a'
+      red:        '#cc2f1d' # '#e85841' # '#fb4934'
+      green:      '#98971a' # '#689d6a'
       yellow:     '#eebd35'
       blue:       '#458588'
       magenta:    '#b16286'
-      cyan:       '#7fa2ac'
-      white:      '#dedede'
+      cyan:       '#689d6a' # '#7fa2ac'
+      white:      '#e4d8b2' # '#dedede'
     bright: 
       black:      '#665c54' # comment color / autofill on cli color
       red:        '#d65d0e'

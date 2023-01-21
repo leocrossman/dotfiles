@@ -404,3 +404,6 @@ alias uninstall_brew="NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.
 
 # export PATH=~/legendary:$PATH
 fpath+=${ZDOTDIR:-~}/.zfunc
+
+export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
