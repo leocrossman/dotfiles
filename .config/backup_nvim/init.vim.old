@@ -96,7 +96,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'mhinz/vim-rfc'
 
 " json
-Plug 'elzr/vim-json'
+
 Plug 'prettier/vim-prettier', {
       \ 'do': 'yarn install --frozen-lockfile --production',
       \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
@@ -324,9 +324,9 @@ map <C-w>q <Nop>
 
 " ---------Plugin Configs---------
 " vim-javascript
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
+"let g:javascript_plugin_jsdoc = 1
+"let g:javascript_plugin_ngdoc = 1
+"let g:javascript_plugin_flow = 1
 
 
 " NERDCommenter

@@ -318,3 +318,5 @@ export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
 
 alias tree="tree --gitignore"
+
+export STARDICT_DATA_DIR="$HOME/stardict" # sdcv searches dictionaries in $STARDICT_DATA_DIR/dic
