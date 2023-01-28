@@ -85,19 +85,20 @@ return require('packer').startup(function(use)
   use 'ackyshake/Spacegray.vim'
 
 
-  use 'itchyny/lightline.vim'
-  use 'edkolev/tmuxline.vim'
+  -- use 'itchyny/lightline.vim'
 
   use 'chrisbra/csv.vim'
-
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
 
   -- Rust
   use 'simrat39/rust-tools.nvim' -- also 'neovim/nvim-lspconfig'
   use 'mfussenegger/nvim-dap' -- debugging - also plenary.nvim
 
-
+  -- Vim + Tmux status bars
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use 'edkolev/tmuxline.vim'
 
 
 
