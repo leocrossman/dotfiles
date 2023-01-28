@@ -19,13 +19,15 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use({
-    'luisiacc/gruvbox-baby',
-    as = 'gruvbox-baby',
-    config = function()
-      vim.cmd('colorscheme gruvbox-baby')
-    end
-  })
+  -- use({
+    -- 'luisiacc/gruvbox-baby',
+    -- as = 'gruvbox-baby',
+    -- config = function()
+      -- vim.cmd('colorscheme gruvbox-baby')
+    -- end
+  -- })
+
+  use { "ellisonleao/gruvbox.nvim" }
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use 'nvim-treesitter/playground'
