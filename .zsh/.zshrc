@@ -150,7 +150,7 @@ fi
 # Changes permissions to be executable
 #chmod +x ~/.dotfiles/scripts/ubuntu/bash/install_fortune.sh
 
-  
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -314,9 +314,27 @@ alias l.="ls -A | egrep '^\.'"
 
 export PATH=/opt/homebrew/bin:$PATH
 
-export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
+# export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/zlib/lib/pkgconfig"
+# export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
+# export PATH="$(brew --prefix tcl-tk)/bin:$PATH" \
+# export LDFLAGS="-L$(brew --prefix tcl-tk)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" \
+# export CPPFLAGS="-I$(brew --prefix tcl-tk)/include -L$(brew --prefix zlib)/include -L$(brew --prefix bzip2)/include" \
+# export PKG_CONFIG_PATH="$(brew --prefix tcl-tk)/lib/pkgconfig" \
+# export CFLAGS="-I$(brew --prefix tcl-tk)/include -I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix zlib)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" \
+# export LDFLAGS="-I$(brew --prefix tcl-tk)/lib -L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib"
 
 alias tree="tree --gitignore"
 
 export STARDICT_DATA_DIR="$HOME/stardict" # sdcv searches dictionaries in $STARDICT_DATA_DIR/dic
+
+export PYENV_ROOT="$HOME/.pyenv" # default path
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export CC="$(brew --prefix gcc)/bin/gcc-11"
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew' # quiet homebrew configure
+
+export PATH="$HOME/bin:$PATH"
