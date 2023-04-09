@@ -334,7 +334,11 @@ export STARDICT_DATA_DIR="$HOME/stardict" # sdcv searches dictionaries in $STARD
 export PYENV_ROOT="$HOME/.pyenv" # default path
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-export CC="$(brew --prefix gcc)/bin/gcc-11"
+export CC='/usr/bin/gcc'
+
 # alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew' # quiet homebrew configure
 
 export PATH="$HOME/bin:$PATH"
+
+alias mux=tmuxinator
+export PATH="/opt/homebrew/sbin:$PATH"
