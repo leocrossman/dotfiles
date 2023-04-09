@@ -36,6 +36,13 @@ vim.opt.encoding = 'utf8'
 
 vim.opt.path = '**'
 
+-- get pyenv venv provider path e.g. py3nvim
+-- local handle = io.popen('pyenv which python')
+-- local result = handle:read('*a')
+-- handle:close()
+-- vim.g.python3_host_prog = result
+vim.g.python3_host_prog = '/Users/l/.pyenv/versions/3.11.2/bin/python'
+
 -- vim.o.wildmode = 'longest,list,full'
 -- vim.o.wildmode = {'longest', 'list', 'full'}
 -- vim.o.wildmenu = true
@@ -189,7 +196,6 @@ let g:NERDCreateDefaultMappings = 1
 " source ~/.config/nvim/plugins/yats.vim
 "source ~/.config/nvim/plugins/rainbow.vim
 "source ~/.config/nvim/plugins/rust-tools.vim
-
 
 
 

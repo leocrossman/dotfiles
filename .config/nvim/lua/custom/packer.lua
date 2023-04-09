@@ -20,17 +20,17 @@ return require('packer').startup(function(use)
   }
 
   -- use({
-    -- 'luisiacc/gruvbox-baby',
-    -- as = 'gruvbox-baby',
-    -- config = function()
-      -- vim.cmd('colorscheme gruvbox-baby')
-    -- end
+  -- 'luisiacc/gruvbox-baby',
+  -- as = 'gruvbox-baby',
+  -- config = function()
+  -- vim.cmd('colorscheme gruvbox-baby')
+  -- end
   -- })
 
   use { "ellisonleao/gruvbox.nvim" }
 
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  use 'nvim-treesitter/playground'
+  -- use 'nvim-treesitter/playground'
 
   use 'theprimeagen/harpoon'
 
@@ -84,7 +84,7 @@ return require('packer').startup(function(use)
 
   -- Themes
   use 'sickill/vim-monokai'
-  use 'ackyshake/Spacegray.vim'
+  -- use 'ackyshake/Spacegray.vim'
 
 
   -- use 'itchyny/lightline.vim'
