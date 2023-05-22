@@ -1,4 +1,6 @@
+---@diagnostic disable: unused-local
 local lsp = require('lsp-zero')
+local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
 
@@ -46,7 +48,7 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-  suggest_lsp_servers = false,
+  suggest_lsp_servers = true,
   sign_icons = {
     error = 'E',
     warn = 'W',
@@ -55,7 +57,6 @@ lsp.set_preferences({
   }
 })
 
----@diagnostic disable-next-line: unused-local
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
@@ -69,7 +70,22 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
   vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+
+  vim.keymap.set("n", '<leader>f', vim.lsp.buf.format)
 end)
+
+lsp.format_on_save({
+  format_opts = {
+    timeout_ms = 10000,
+  },
+  servers = {
+    ['lua_rs'] = { 'lua' },
+    ['rust_analyzer'] = { 'rust' },
+    ['prettierd'] = { 'javascript', 'typescript', 'json' },
+    -- ['prettier'] = { 'javascript', 'typescript', 'json' },
+    -- ['eslint'] = { 'javascript', 'typescript' },
+  }
+})
 
 lsp.setup()
 

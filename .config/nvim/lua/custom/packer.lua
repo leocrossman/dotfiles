@@ -19,6 +19,40 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
+  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  -- use 'nvim-treesitter/playground'
+
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },             -- Required
+      { 'williamboman/mason.nvim' },           -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },         -- Required
+      { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+      { 'hrsh7th/cmp-buffer' },       -- Optional
+      { 'hrsh7th/cmp-path' },         -- Optional
+      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+      { 'hrsh7th/cmp-nvim-lua' },     -- Optional
+
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },             -- Required
+      { 'rafamadriz/friendly-snippets' }, -- Optional
+    }
+  }
+
+  use { 'jose-elias-alvarez/null-ls.nvim', requires = { { 'VonHeikemen/lsp-zero.nvim' }, { 'nvim-lua/plenary.nvim' } } }
+
+  use { 'MunifTanjim/eslint.nvim', requires = { { 'jose-elias-alvarez/null-ls.nvim' }, { 'VonHeikemen/lsp-zero.nvim' },
+    { 'nvim-lua/plenary.nvim' } } }
+
+  use('neovim/nvim-lspconfig')
+  use { 'MunifTanjim/prettier.nvim', requires = { { 'jose-elias-alvarez/null-ls.nvim' }, { 'VonHeikemen/lsp-zero.nvim' } } }
+
   -- use({
   -- 'luisiacc/gruvbox-baby',
   -- as = 'gruvbox-baby',
@@ -29,8 +63,6 @@ return require('packer').startup(function(use)
 
   use { "ellisonleao/gruvbox.nvim" }
 
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  -- use 'nvim-treesitter/playground'
 
   use 'theprimeagen/harpoon'
 
@@ -38,39 +70,18 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
 
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
-    requires = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      { 'williamboman/mason.nvim' }, -- Optional
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' }, -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'hrsh7th/cmp-buffer' }, -- Optional
-      { 'hrsh7th/cmp-path' }, -- Optional
-      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-      { 'hrsh7th/cmp-nvim-lua' }, -- Optional
-
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' }, -- Required
-      { 'rafamadriz/friendly-snippets' }, -- Optional
-    }
-  }
 
 
   -- LSP > CoC
   -- use('neoclide/coc.nvim', {branch = 'release'})
 
   use 'preservim/nerdtree'
+  use { 'Xuyuanp/nerdtree-git-plugin', requires = { 'preservim/nerdtree' } }
 
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
 
-  use 'sbdchd/neoformat'
+  -- use 'sbdchd/neoformat'
 
   use 'qxxxb/vim-searchhi'
   use 'haya14busa/vim-asterisk'
@@ -93,7 +104,7 @@ return require('packer').startup(function(use)
 
   -- Rust
   use 'simrat39/rust-tools.nvim' -- also 'neovim/nvim-lspconfig'
-  use 'mfussenegger/nvim-dap' -- debugging - also plenary.nvim
+  use 'mfussenegger/nvim-dap'    -- debugging - also plenary.nvim
 
   -- Vim + Tmux status bars
   use {
@@ -102,7 +113,10 @@ return require('packer').startup(function(use)
   }
   use 'edkolev/tmuxline.vim'
 
-
+  -- **Set VimDevIcons to load after these plugins!**
+  -- NERDTree [1] | vim-airline [2] | CtrlP [3] | powerline [4] | Denite [5] | unite
+  -- [6] | lightline.vim [7] | vim-startify [8] | vimfiler [9] | flagship [11]
+  use 'ryanoasis/vim-devicons'
 
 
 

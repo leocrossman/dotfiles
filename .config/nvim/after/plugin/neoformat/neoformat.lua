@@ -19,7 +19,7 @@ augroup fmt
   autocmd!
   " autocmd BufWritePre *\.\(js\|jsx\|ts\|tsx\|json\|prettierrc\|vim\|yml\) undojoin | Neoformat
   " autocmd BufWritePre * undojoin | Neoformat " this line errors
-  autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+"removing Neoformat in favor of lsp foramtter: autocmd BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
 augroup END
 
 " source ~/.config/nvim/plugins/neoformat/json.vim

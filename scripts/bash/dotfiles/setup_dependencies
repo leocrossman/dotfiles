@@ -87,8 +87,8 @@ if [ ! -f "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; 
 fi
 
 # install vim/neovim plugins
-if [ ! -d "$HOME/.vim/plugged" ]; then
-	echo Installing plugins...
-	nvim +'PlugInstall --sync' +qa
-	echo Plugins installed.
-fi
+# if [ ! -d "$HOME/.vim/plugged" ]; then
+	# echo Installing plugins...
+	# nvim +'PlugInstall --sync' +qa
+	# echo Plugins installed.
+# fi

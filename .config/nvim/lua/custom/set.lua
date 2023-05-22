@@ -84,10 +84,10 @@ if has ('autocmd')
     autocmd bufwritepost .tmux.local.conf execute ":!tmux source-file %" | redraw!
   augroup END
 
-  augroup prettier
-    autocmd!
-    autocmd BufWritePre *\.\(js\|jsx\|ts\|tsx\|json\|prettierrc\|vim\|yml\) Neoformat
-  augroup END
+"  augroup prettier
+"    autocmd!
+"    autocmd BufWritePre *\.\(js\|jsx\|ts\|tsx\|json\|prettierrc\|vim\|yml\) Neoformat
+"  augroup END
 
   augroup runByFileType
     autocmd!

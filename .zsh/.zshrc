@@ -342,3 +342,5 @@ export PATH="$HOME/bin:$PATH"
 
 alias mux=tmuxinator
 export PATH="/opt/homebrew/sbin:$PATH"
+
+export ESLINT_DEFAULT_CONFIG="~/.eslintrc.js"

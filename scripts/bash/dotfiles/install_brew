@@ -47,6 +47,8 @@ then
 				htop
 				fzf
 				neovim
+        fsouza/prettierd/prettierd
+        eslint
 		)
 
 

@@ -26,7 +26,6 @@ vim.keymap.set("n", "Q", "<nop>")
 -- https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 --]]
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
