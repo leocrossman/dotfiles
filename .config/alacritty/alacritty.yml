@@ -23,7 +23,7 @@ env:
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
   TERM: xterm-256color
-                                                                               
+
 window:
   # Window dimensions (changes require restart)
   #
@@ -124,7 +124,10 @@ font:
       # - (macOS) DankMono-Regular.otf
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: DankMono NF
+    # family: DankMono NF
+    # family: DankMono Nerd Font
+    family: DankMono Nerd Font Mono
+
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -138,7 +141,9 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     # family: monospace
-    family: Dank Mono
+    # family: Dank Mono
+    # family: DankMono Nerd Font
+    family: DankMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -149,7 +154,9 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Dank Mono
+    # family: Dank Mono
+    # family: DankMono Nerd Font
+    family: DankMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -210,7 +217,7 @@ schemes:
       magenta:    '#b16286'
       cyan:       '#689d6a' # '#7fa2ac'
       white:      '#e4d8b2' # '#dedede'
-    bright: 
+    bright:
       black:      '#665c54' # comment color / autofill on cli color
       red:        '#d65d0e'
       green:      '#8ec07c'
@@ -234,7 +241,7 @@ schemes:
     vi_mode_cursor:
       text:   CellBackground
       cursor: CellForeground
-      
+
 
 
   gruvbox_light: &gruvbox_light
