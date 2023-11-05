@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
@@ -64,7 +64,7 @@ return require('packer').startup(function(use)
   use { "ellisonleao/gruvbox.nvim" }
 
 
-  use 'theprimeagen/harpoon'
+  -- use 'theprimeagen/harpoon'
 
   use 'mbbill/undotree'
 
@@ -75,8 +75,11 @@ return require('packer').startup(function(use)
   -- LSP > CoC
   -- use('neoclide/coc.nvim', {branch = 'release'})
 
-  use 'preservim/nerdtree'
-  use { 'Xuyuanp/nerdtree-git-plugin', requires = { 'preservim/nerdtree' } }
+  -- from vim
+  -- use 'preservim/nerdtree'
+  -- use { 'Xuyuanp/nerdtree-git-plugin', requires = { 'preservim/nerdtree' } }
+  -- nvim alternative:
+  use { 'nvim-tree/nvim-tree.lua' }
 
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
@@ -102,59 +105,16 @@ return require('packer').startup(function(use)
 
   use 'chrisbra/csv.vim'
 
-  use {
-    "cuducos/yaml.nvim",
-    ft = { "yaml" }, -- optional
-    requires = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim" -- optional
-    },
-  }
-
-  use {
-    "rest-nvim/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("rest-nvim").setup({
-        -- Open request results in a horizontal split
-        result_split_horizontal = false,
-        -- Keep the http file buffer above|left when split horizontal|vertical
-        result_split_in_place = false,
-        -- Skip SSL verification, useful for unknown certificates
-        skip_ssl_verification = false,
-        -- Encode URL before making request
-        encode_url = true,
-        -- Highlight request on run
-        highlight = {
-          enabled = true,
-          timeout = 150,
-        },
-        result = {
-          -- toggle showing URL, HTTP info, headers at top the of result window
-          show_url = true,
-          show_http_info = true,
-          show_headers = true,
-          -- executables or functions for formatting response body [optional]
-          -- set them to false if you want to disable them
-          formatters = {
-            json = "jq",
-            html = function(body)
-              return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-            end
-          },
-        },
-        -- Jump to request line on run
-        jump_to_request = false,
-        env_file = '.env',
-        custom_dynamic_variables = {},
-        yank_dry_run = true,
-      })
-    end
-  }
-
   -- Rust
   use 'simrat39/rust-tools.nvim' -- also 'neovim/nvim-lspconfig'
   use 'mfussenegger/nvim-dap'    -- debugging - also plenary.nvim
+
+  -- **Set VimDevIcons to load after these plugins!**
+  -- NERDTree [1] | vim-airline [2] | CtrlP [3] | powerline [4] | Denite [5] | unite
+  -- [6] | lightline.vim [7] | vim-startify [8] | vimfiler [9] | flagship [11]
+  -- use 'ryanoasis/vim-devicons'
+  use 'nvim-tree/nvim-web-devicons'
+
 
   -- Vim + Tmux status bars
   use {
@@ -163,10 +123,16 @@ return require('packer').startup(function(use)
   }
   use 'edkolev/tmuxline.vim'
 
-  -- **Set VimDevIcons to load after these plugins!**
-  -- NERDTree [1] | vim-airline [2] | CtrlP [3] | powerline [4] | Denite [5] | unite
-  -- [6] | lightline.vim [7] | vim-startify [8] | vimfiler [9] | flagship [11]
-  use 'ryanoasis/vim-devicons'
+
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  })
 
 
 

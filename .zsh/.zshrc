@@ -312,7 +312,7 @@ alias l.="ls -A | egrep '^\.'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
 
 # export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
 # export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
@@ -344,3 +344,9 @@ alias mux=tmuxinator
 export PATH="/opt/homebrew/sbin:$PATH"
 
 export ESLINT_DEFAULT_CONFIG="~/.eslintrc.js"
+
+export PATH="/Users/l/bin/git-fuzzy/bin:$PATH"
+
+alias e=eza
+
+export PATH="$HOME/.docker/bin:$PATH"
