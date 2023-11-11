@@ -134,6 +134,8 @@ return require('packer').startup(function(use)
     end
   })
 
+  -- display nerdicons in nvim
+  use({ 'glepnir/nerdicons.nvim', cmd = 'NerdIcons', config = function() require('nerdicons').setup({}) end })
 
 
   -- Automatically set up configuration after cloning packer.nvim
